@@ -6,7 +6,6 @@ class ColorPicker {
     this.element.addEventListener('click', this.action)
     this.color = new RGB(color)
     this.render()
-    console.log(JSON.stringify(this.color), this.color)
   }
   render = () => {
     this.element.querySelectorAll('[data-bind]').forEach(el => {
