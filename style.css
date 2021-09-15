@@ -1,0 +1,55 @@
+body {
+	background: #666;
+	font-size: 12px;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+main {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	gap: 10px;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+main > * {
+	display: inline-block;
+	width: 200px;
+	padding: 20px;
+	background: white;
+}
+fieldset {
+	border: 1px solid #aaa;
+	margin: 0;
+	gap: 5px;
+	display: grid;
+}
+* + fieldset {
+    margin-top: 10px;
+}
+fieldset.slider {
+	grid-template-columns: 1fr auto;
+}
+fieldset.split {
+	grid-template-columns: 1fr 1fr;
+}
+fieldset.actions {
+	margin-top: 20px;
+	border: none;
+	padding: 0;
+	grid-template-columns: 2fr 3fr;
+}
+fieldset legend {
+	font-weight: bold;
+}
+fieldset input {
+	width: auto;
+	min-width: 0;
+	text-align: center;
+	font-weight: bold;
+}
+fieldset output {
+	text-align: right;
+	font-weight: bold;
+	min-width: 30px;
+}

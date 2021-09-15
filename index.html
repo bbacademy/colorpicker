@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<title>ColorPicker</title>
+<link rel="stylesheet" href="./style.css">
+
+<main id="app">
+	<div id="view1"></div>
+	<div id="view2"></div>
+	<div id="view3"></div>
+</main>
+
+<script id="template" type="text/template">
+	<div class="container">
+		<fieldset class="slider">
+			<legend>Red</legend>
+			<input type="range" data-bind="r" min="0" max="255" />
+			<output data-bind="r_percent"></output>
+		</fieldset>
+		<fieldset class="slider">
+			<legend>Green</legend>
+			<input type="range" data-bind="g" min="0" max="255" />
+			<output data-bind="g_percent"></output>
+		</fieldset>
+		<fieldset class="slider">
+			<legend>Blue</legend>
+			<input type="range" data-bind="b" min="0" max="255" />
+			<output data-bind="b_percent"></output>
+		</fieldset>
+		<fieldset class="split">
+			<legend>Hex</legend>
+			<input type="text" data-bind="value" max7 pattern="^#[0-9a-fA-F]{6}$" />
+			<input type="color" data-bind="value" />
+		</fieldset>
+		<fieldset class="actions">
+			<button data-action="cancel">Cancel</button>
+			<button data-action="select">Select</button>
+		</fieldset>
+	</form>
+</script>
+<script src="../lib/rgb.js"></script>
+<script src="./script.js"></script>
