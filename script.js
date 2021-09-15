@@ -1,5 +1,5 @@
 class ColorPicker {
-  constructor(selector, color = '#000000') {
+  constructor(selector, color) {
     this.element = selector instanceof HTMLElement ? selector : document.querySelector(selector)
     this.element.innerHTML = template.innerHTML
     this.element.addEventListener('input', this.update)
@@ -12,6 +12,9 @@ class ColorPicker {
     this.element.querySelectorAll('[data-bind]').forEach(el => {
       if (!el.matches(':focus,:active')) {
         el.value = this.color[el.dataset.bind]
+        if (el.matches('output')) {
+          el.value = Math.round(el.value / 255 * 100) + '%'
+        }
       }
     })
   }
@@ -27,16 +30,12 @@ class ColorPicker {
       if (fn instanceof Function) fn.call(this)
     }
   }
-  cancel() {
-    console.log('action cancel', this.color.value, this.color.toJSON())
-  }
-  select() {
-    console.log('action select', this.color.toData())
-  }
+  cancel() {}
+  select() {}
 }
 
 addEventListener('load', () => {
-  new ColorPicker('#view1')
-  new ColorPicker(document.getElementById('view2'), '#FF00FF')
-  new ColorPicker(view3, '#FF0000')
+  a1 = new ColorPicker('#view1')
+  a2 = new ColorPicker(document.getElementById('view2'), '#FF00FF')
+  a3 = new ColorPicker(view3, '#FF0000')
 })
